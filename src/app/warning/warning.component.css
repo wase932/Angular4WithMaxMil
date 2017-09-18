@@ -1,0 +1,17 @@
+*{
+    margin: 10px;
+}
+
+.warningMessage{
+    border-width: 1px;
+    border-style: solid;
+    transition: background-color 0.5s;
+}
+.warningMessage:hover{
+    border-width: 3px;
+    border-style: solid;
+    border-color: #3B0202;
+    background-color: #730B0B;
+    color: white;
+    transition: background-color 0.5s;
+}
