@@ -9,6 +9,9 @@ export class ServerComponent {
     allowToAddServer = false;
     serverCreationStatus = 'No server was created';
     serverName = '';
+    buttonStatus = 'Submit';
+    username = '';
+    buttonIsActive = false;
     sampleVar: String = 'This is from the Server Component';
     constructor() {
     setTimeout(() => {this.allowToAddServer = !this.allowToAddServer; } , 3000);
@@ -28,6 +31,19 @@ export class ServerComponent {
         // console.log(event);
 
     }
+    onEnterUsername() {
+        if (this.username.length < 3) {
+            this.buttonStatus = 'Submit';
+            this.buttonIsActive = false;
+        } else {
+            this.buttonStatus = 'Reset';
+            this.buttonIsActive = true;
+        }
+    }
+
+    onClickUsernameButton() {
+        this.username = '';
+    }
 }
 
-
+// TODO: Complete Assignment

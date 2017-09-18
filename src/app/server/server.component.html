@@ -11,3 +11,12 @@ Add Server
 <p>{{serverName}}</p>
 <p [innerText]="allowToAddServer"></p>
 <p> {{serverCreationStatus}}</p>
+<hr>
+<div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" (input) = "onEnterUsername()">
+    </div>
+    <div>
+        <button class="btn btn-primary" (click) = "onClickUsernameButton()" [disabled]="!buttonIsActive">{{buttonStatus}}</button>
+    </div>
+</div>
