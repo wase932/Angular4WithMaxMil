@@ -1,0 +1,7 @@
+<div>
+  <button class="btn btn-primary" (click) = "onBtnClick()">Display Details</button>
+  <p *ngIf="showDetails">Secure: Password = True</p>
+  <ul *ngFor="let item of myArray"
+  [ngClass]="{'below5': item.index <= 5,'above5': item.index > 5}"
+  >{{item.index + item.value}}</ul>
+</div>
