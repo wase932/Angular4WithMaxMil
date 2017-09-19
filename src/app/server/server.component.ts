@@ -9,6 +9,7 @@ export class ServerComponent {
     allowToAddServer = false;
     serverCreationStatus = 'No server was created';
     serverName = '';
+    isServerCreated = false;
     buttonStatus = 'Submit';
     username = '';
     buttonIsActive = false;
@@ -45,5 +46,3 @@ export class ServerComponent {
         this.username = '';
     }
 }
-
-// TODO: Complete Assignment

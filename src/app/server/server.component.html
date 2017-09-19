@@ -1,14 +1,14 @@
-<div class="form-group" >
+<!-- <div class="form-group" >
     <input type="text" class="form-control" (input) = "onUpdateServer($event)" placeholder="Two-Way-Event Binding" >
-</div>
+</div> -->
 <div class="form-group" >
     <input type="text" class="form-control" placeholder="ngModel Two-Way Binding" [(ngModel)]="serverName">
 </div>
-<p>{{serverName}}</p>
+<!-- <p>{{serverName}}</p> -->
 <button class="btn btn-primary" [disabled]="!allowToAddServer" (click) = "onCreateServer()"> 
 Add Server
 </button>
-<p>{{serverName}}</p>
+<p *ngIf="serverName">{{"Creating new server with name : " + serverName}}</p>
 <p [innerText]="allowToAddServer"></p>
 <p> {{serverCreationStatus}}</p>
 <hr>
