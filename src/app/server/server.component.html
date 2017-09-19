@@ -14,6 +14,8 @@ Add Server
 </ng-template>
 <p [innerText]="allowToAddServer"></p>
 <p> {{serverCreationStatus}}</p>
+<p [ngStyle]="{backgroundColor: getColor()}">Server with id 10 is {{serverStatus}}</p>
+<p>Server with id 10 is offline</p>
 <hr>
 <div>
     <div class="form-group">

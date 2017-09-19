@@ -9,6 +9,7 @@ export class ServerComponent {
     allowToAddServer = false;
     serverCreationStatus = 'No server was created';
     serverName = '';
+    serverStatus = 'offline';
     isServerCreated = false;
     buttonStatus = 'Submit';
     username = '';
@@ -16,11 +17,16 @@ export class ServerComponent {
     sampleVar: String = 'This is from the Server Component';
     constructor() {
     setTimeout(() => {this.allowToAddServer = !this.allowToAddServer; } , 3000);
+    this.serverStatus = Math.random() < 0.5 ? 'offline' : 'online';
     }
 
     ngOnInit() {
         // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         // Add 'implements OnInit' to the class.
+    }
+
+    getColor() {
+        return this.serverStatus === 'online' ? 'green' : 'red';
     }
 
     onCreateServer() {
