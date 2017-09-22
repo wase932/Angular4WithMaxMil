@@ -1,3 +1,4 @@
+import { Ingredient } from './../../shared/ingredient.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-
-  constructor() { }
-
+  constructor() {
+   }
   ngOnInit() {
   }
 
