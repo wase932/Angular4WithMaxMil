@@ -3,11 +3,12 @@
     <div class="form-group">
       <div class="col-md-3">
         <label for="name" class="control-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control" placeholder="Product Name">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Product Name" [(ngModel)]="Ingredient.name">
+        <a>{{Ingredient.name}} ({{Ingredient.quantity}})</a>
       </div>
       <div class="col-md-1">
         <label for="qty" class="control-label">Qty</label>
-        <input type="number" name="qty" id="qty" class="form-control" placeholder="0">
+        <input type="number" name="qty" id="qty" class="form-control" placeholder="0" [(ngModel)]="Ingredient.quantity">
       </div>
     </div>
   </div>

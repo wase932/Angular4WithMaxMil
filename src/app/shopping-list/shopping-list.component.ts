@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
+  ParentIngredient: Ingredient = {name: 'Parent Ingredient', quantity: 10};
   Ingredients: Ingredient[] = [];
   constructor() {
     this.Ingredients.push(
