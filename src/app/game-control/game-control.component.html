@@ -1,9 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="form-group">
-      <button class="btn btn-success" (click)="startGame()" >Start</button>
+      <button class="btn btn-success" (click)="startGame()" 
+      [disabled]='isGameRunning'
+      >Start</button>
       {{lastNumber}}
-        <button class="btn btn-danger" (click)="stopGame()" >Stop</button>
+        <button class="btn btn-danger" (click)="stopGame()" 
+        [disabled]='!isGameRunning'
+        >Stop</button>
     </div>
   </div>
 </div>
