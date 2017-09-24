@@ -1,8 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="form-group">
-      <button class="btn btn-success">Start</button>
-        <button class="btn btn-danger">Stop</button>
+      <button class="btn btn-success" (click)="startGame()" >Start</button>
+      {{lastNumber}}
+        <button class="btn btn-danger" (click)="stopGame()" >Stop</button>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container-fluid">
-<div class="row">
-  <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
       <h3>Instructions: Bind it!</h3>
       <ol>
         <li>Create three new components: GameControl, Odd and Even</li>
@@ -8,25 +8,34 @@
         <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
         <li>The event should be listenable from outside the component</li>
         <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
-        <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+        <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component
+          (on even numbers)</li>
         <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
         <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
       </ol>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <app-game-control></app-game-control>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <app-even></app-even>
-  </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-      <app-odd></app-odd>
     </div>
-</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (intervalFired)="countChange($event)"></app-game-control>
+      {{parentInterval}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-even></app-even>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    *ngFor="let num of OddNumbers">
+      <li [ngClass]="{'btn btn-danger': true}" >
+        <app-odd></app-odd> {{num}}</li>
+    </ul>
+    <ul class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    *ngFor="let num of EvenNumbers">
+      <li [ngClass]="{'btn btn-success': true}">
+        <app-even></app-even> {{num}}</li>
+    </ul>
+  </div>
 </div>
