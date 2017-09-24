@@ -35,7 +35,7 @@
     <ul class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
     *ngFor="let num of EvenNumbers">
       <li [ngClass]="{'btn btn-success': true}">
-        <app-even></app-even> {{num}}</li>
+        <app-even [evenNumber]='parentInterval' ></app-even></li>
     </ul>
   </div>
 </div>
