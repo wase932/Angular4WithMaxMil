@@ -1,4 +1,6 @@
-<div class="container">
+<div class="container"
+*ngIf="recipe !=null"
+>
   <img class="img-responsive" [src]="recipe.ImagePath" [alt]="recipe.Name" style="max-width: 150px;" >
   <div class="row container-fluid">
     <div class="">
@@ -17,9 +19,7 @@
       </ul>
     </div>
   </div>
-  <div class="row container-fluid"
-  *ngIf="recipe.Name !=null"
-  >
+  <div class="row container-fluid">
     <h6>{{recipe.Description}}</h6>
     <h6>Ingredients</h6>
   </div>
