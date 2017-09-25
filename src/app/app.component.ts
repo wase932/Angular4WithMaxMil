@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentButton: string;
+  currentButton = 'recipes';
 
   onMenuEventReceived(event) {
     this.currentButton = event;

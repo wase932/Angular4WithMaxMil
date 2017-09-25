@@ -6,16 +6,6 @@
   </div>
 </div>
 <hr>
-<div class="list-group container-fluid">
-  <div>
-    <a class="row list-group-item" *ngFor="let recipe of Recipes">
-      <div class="col-md-8">
-        <h4 class="list-group-item-heading">{{recipe.Name}}</h4>
-        <h6 class="list-group-item-text"> {{recipe.Description}}</h6>
-      </div>
-      <div class="col-md-4">
-        <img class="img-responsive img-thumbnail" [src]="recipe.ImagePath" />
-      </div>
-    </a>
-  </div>
+<div *ngFor="let recipe of Recipes">
+<app-recipe-item [recipe]="recipe"></app-recipe-item>
 </div>

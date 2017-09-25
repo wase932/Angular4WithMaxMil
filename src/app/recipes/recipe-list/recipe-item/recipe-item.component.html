@@ -1,3 +1,10 @@
-<p>
-  recipe-item works!
-</p>
+
+      <a class="row list-group-item">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <h4 class="list-group-item-heading">{{recipe.Name}}</h4>
+          <h6 class="list-group-item-text"> {{recipe.Description}}</h6>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <img class="img-responsive img-thumbnail" [src]="recipe.ImagePath" />
+        </div>
+      </a>

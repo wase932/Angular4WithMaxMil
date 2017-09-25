@@ -6,7 +6,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit, DoCheck {
+export class RecipeListComponent implements OnInit {
   Recipes: Recipe[];
   constructor() { }
 
@@ -16,13 +16,7 @@ export class RecipeListComponent implements OnInit, DoCheck {
       // tslint:disable-next-line:max-line-length
       , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9RtVx0juYB6U5B2vUhK3a7Xb9Z0I2PSzsphu6LdZC7RWoE1kbTA')];
 
-      console.log('Ng On Init Called');
-  }
-
-  ngDoCheck() {
-    // Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
-    // Add 'implements DoCheck' to the class.
-    console.log('DoCheck was called'); 
+      console.log('Initialized: Recipie-list Component');
   }
 
   addRecipe() {
