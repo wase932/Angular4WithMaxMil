@@ -1,6 +1,12 @@
 <div class="container">
+  <img class="img-responsive" [src]="recipe.ImagePath" [alt]="recipe.Name" style="max-width: 150px;" >
+  <div class="row container-fluid">
+    <div class="">
+    {{recipe.Name}}
+  </div>
+  </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <button class="btn btn-primary dropdown-toggle"><span class="caret"></span> 
         Manage Recipe
       </button>
@@ -11,8 +17,10 @@
       </ul>
     </div>
   </div>
-  <div class="row container-fluid">
-    <h6>Description</h6>
+  <div class="row container-fluid"
+  *ngIf="recipe.Name !=null"
+  >
+    <h6>{{recipe.Description}}</h6>
     <h6>Ingredients</h6>
   </div>
 </div>
