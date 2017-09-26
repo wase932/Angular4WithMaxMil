@@ -22,10 +22,6 @@ export class ServerDataService implements OnInit {
         const serverToDelete = this.ServerList.indexOf( {name: name, status: status} );
         this.ServerList.slice(serverToDelete);
         console.log('The ' + name + ' Server Was Removed');
-        console.log(
-            this.ServerList.forEach(element => {
-                console.log(element.name);
-            }) );
     }
 
     getServers() {

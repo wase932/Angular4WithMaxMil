@@ -41,7 +41,7 @@ export class ServerComponent implements OnInit {
         this.servers.push(this.serverName);
         this.serverCreationStatus = 'server was created';
         this.loggingService.logStatusChange(this.serverStatus);
-        this.serverDataService.removeServer('UselessServer' , 'Offline');
+        this.serverDataService.addServer('UselessServer' , 'Offline');
     }
 
     onUpdateServer(event: Event) {
