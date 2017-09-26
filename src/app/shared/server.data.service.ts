@@ -1,8 +1,10 @@
-import { OnInit } from '@angular/core';
+import { LoggingService } from './logging.service';
+import { OnInit, Injectable } from '@angular/core';
 
 export class ServerDataService implements OnInit {
+
     ServerList: {name: string, status: string} [] = [];
-    constructor() {
+    constructor( @Injectable() private loggingService: LoggingService) {
     }
 
     ngOnInit() {
@@ -14,7 +16,7 @@ export class ServerDataService implements OnInit {
 
     addServer(name: string, status: string) {
         this.ServerList.push({name: name, status: status});
-        console.log('Added New Server: ' + name);
+        this.loggingService.logServerAdd(name);
     }
 
     removeServer(name: string, status: string) {
