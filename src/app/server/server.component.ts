@@ -1,3 +1,4 @@
+import { ServerDataService } from './../shared/server.data.service';
 import { LoggingService } from './../shared/logging.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     styles : [`.onLine {
         color: white;
     }`],
-    providers : [LoggingService]
+    providers : [LoggingService, ServerDataService]
 })
 
 export class ServerComponent implements OnInit {
@@ -21,7 +22,8 @@ export class ServerComponent implements OnInit {
     buttonIsActive = false;
     sampleVar: String = 'This is from the Server Component';
     servers = ['DevServer', 'TestServer', 'ProdServer'];
-    constructor( private loggingService: LoggingService) {
+
+    constructor( private loggingService: LoggingService, private serverDataService: ServerDataService) {
     setTimeout(() => {this.allowToAddServer = !this.allowToAddServer; } , 3000);
     }
 
@@ -39,6 +41,7 @@ export class ServerComponent implements OnInit {
         this.servers.push(this.serverName);
         this.serverCreationStatus = 'server was created';
         this.loggingService.logStatusChange(this.serverStatus);
+        this.serverDataService.removeServer('UselessServer' , 'Offline');
     }
 
     onUpdateServer(event: Event) {
