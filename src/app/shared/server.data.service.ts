@@ -1,10 +1,11 @@
 import { LoggingService } from './logging.service';
 import { OnInit, Injectable } from '@angular/core';
 
+@Injectable()
 export class ServerDataService implements OnInit {
 
     ServerList: {name: string, status: string} [] = [];
-    constructor( @Injectable() private loggingService: LoggingService) {
+    constructor(private loggingService: LoggingService) {
     }
 
     ngOnInit() {
