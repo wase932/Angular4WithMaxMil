@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { LoggingService } from './../shared/logging.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-server',
     templateUrl: './server.component.html',
     styles : [`.onLine {
         color: white;
-    }`]
+    }`],
+    providers : [LoggingService]
 })
 
-export class ServerComponent {
+export class ServerComponent implements OnInit {
     allowToAddServer = false;
     serverCreationStatus = 'No server was created';
     serverName = '';
@@ -19,7 +21,7 @@ export class ServerComponent {
     buttonIsActive = false;
     sampleVar: String = 'This is from the Server Component';
     servers = ['DevServer', 'TestServer', 'ProdServer'];
-    constructor() {
+    constructor( private loggingService: LoggingService) {
     setTimeout(() => {this.allowToAddServer = !this.allowToAddServer; } , 3000);
     }
 
@@ -36,6 +38,7 @@ export class ServerComponent {
     onCreateServer() {
         this.servers.push(this.serverName);
         this.serverCreationStatus = 'server was created';
+        this.loggingService.logStatusChange(this.serverStatus);
     }
 
     onUpdateServer(event: Event) {
