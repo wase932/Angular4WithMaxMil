@@ -1,17 +1,3 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <app-header (fireButtonClick)='onMenuEventReceived($event)'></app-header>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <app-recipes *ngIf="currentButton === 'recipes'"></app-recipes>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <app-shopping-list *ngIf="currentButton === 'shoppingList'"></app-shopping-list>
-    </div>
-  </div>
+  <app-server></app-server>
 </div>
