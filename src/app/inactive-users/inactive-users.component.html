@@ -1,0 +1,10 @@
+<div class="list-group" *ngIf="inactiveUsers.length > 0">
+  <a href="#" class="list-group-item success" style="background-color:crimson; color:aliceblue" >
+      Inactive Users
+    </a>
+  <a href="#" class="list-group-item"
+  *ngFor="let user of inactiveUsers"
+  (click)="onClick(user)"
+  >{{user.name}} | <a>{{user.status == 'Active'? 'Set to inactive' : 'Set to active' }} </a>
+  </a>
+</div>
