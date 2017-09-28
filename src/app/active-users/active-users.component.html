@@ -2,9 +2,9 @@
   <a href="#" class="list-group-item active">
       Active Users
     </a>
-  <a href="#" class="list-group-item"
+  <a class="list-group-item"
   *ngFor="let user of activeUsers"
-  (click)="onClick(user)"
-  >{{user.name}} | <a>{{user.status == 'Active'? 'Set to inactive' : 'Set to active' }} </a>
-  </a>
+  (click)="onClick(user)">
+  {{ user.name }} | <a>{{user.status == 'Active'? 'Set to inactive' : 'Set to active' }} </a>
+</a>
 </div>

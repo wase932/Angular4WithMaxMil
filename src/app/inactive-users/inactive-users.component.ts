@@ -1,3 +1,4 @@
+import { UserDataService } from './../shared/users.data.services';
 import { UserModel } from './../shared/user.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,18 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class InactiveUsersComponent implements OnInit {
   inactiveUsers: UserModel[] = [];
 
-    constructor() {
+    constructor(private userDataSvc: UserDataService) {
+      this.inactiveUsers = this.userDataSvc.getUsers('Inactive');
     }
 
     ngOnInit() {
-      this.inactiveUsers.push( new UserModel('Hemal' , 'Inactive'));
-      this.inactiveUsers.push( new UserModel('Rick' , 'Inactive'));
-      this.inactiveUsers.push( new UserModel('Nilesh' , 'Inactive'));
+      this.userDataSvc.FireChangeInData.subscribe(
+        (i) => { this.inactiveUsers = this.userDataSvc.getUsers('Inactive' ); }
+      );
     }
 
     onClick(user: UserModel) {
-      const i = this.inactiveUsers.indexOf(user);
-      this.inactiveUsers.splice(i, 1);
-  }
+      this.userDataSvc.setUser(user);
+      this.inactiveUsers = this.userDataSvc.getUsers('Inactive');
+    }
 
 }

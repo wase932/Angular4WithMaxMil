@@ -1,3 +1,4 @@
+import { UserDataService } from './../shared/users.data.services';
 import { UserModel } from './../shared/user.model';
 import { Component, OnInit, EventEmitter, Output, Input, DoCheck } from '@angular/core';
 
@@ -7,19 +8,21 @@ import { Component, OnInit, EventEmitter, Output, Input, DoCheck } from '@angula
   styleUrls: ['./active-users.component.css']
 })
 export class ActiveUsersComponent implements OnInit {
-  activeUsers: UserModel[] = [];
-
-  constructor() {
+    activeUsers: UserModel[] = [];
+    constructor(private userDataSvc: UserDataService) {
+    this.activeUsers = this.userDataSvc.getUsers('Active');
   }
 
   ngOnInit() {
-    this.activeUsers.push( new UserModel('Hemal' , 'Active'));
-    this.activeUsers.push( new UserModel('Rick' , 'Active'));
-    this.activeUsers.push( new UserModel('Nilesh' , 'Active'));
+    this.userDataSvc.FireChangeInData.subscribe(
+      (i) => {
+        this.activeUsers = this.userDataSvc.getUsers('Active');
+      }
+    );
   }
 
   onClick(user: UserModel) {
-    const i = this.activeUsers.indexOf(user);
-    this.activeUsers.splice(i, 1);
-}
+    this.userDataSvc.setUser(user);
+    this.activeUsers = this.userDataSvc.getUsers('Active');
+  }
 }
