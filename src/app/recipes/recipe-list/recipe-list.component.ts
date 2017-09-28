@@ -1,3 +1,4 @@
+import { RecipeService } from './../../services/recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit, DoCheck, EventEmitter, Output } from '@angular/core';
 
@@ -7,30 +8,20 @@ import { Component, OnInit, DoCheck, EventEmitter, Output } from '@angular/core'
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  Recipes: Recipe[];
-  @Output() selectedRecipe = new EventEmitter<Recipe>();
-  constructor() { }
+  Recipes: Recipe[] = [];
+  // @Output() selectedRecipe = new EventEmitter<Recipe>();
+  constructor(private recipeSvc: RecipeService) {
+    this.Recipes = this.recipeSvc.getRecipes();
+   }
 
   ngOnInit() {
-    this.Recipes = [new Recipe('Test Recipe'
-      , 'This is a test recipe'
-      // tslint:disable-next-line:max-line-length
-      , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9RtVx0juYB6U5B2vUhK3a7Xb9Z0I2PSzsphu6LdZC7RWoE1kbTA')];
-
-      console.log('Initialized: Recipie-list Component');
+    this.recipeSvc.fireAddedRecipe.subscribe(() => { this.Recipes = this.recipeSvc.getRecipes(); });
   }
 
   addRecipe() {
-
-    this.Recipes.push(new Recipe('Another Recipe'
-    , 'This is a test recipe'
-    // tslint:disable-next-line:max-line-length
-    , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9RtVx0juYB6U5B2vUhK3a7Xb9Z0I2PSzsphu6LdZC7RWoE1kbTA'));
-  }
-
-  onSelectRecipe(recipe: Recipe) {
-    this.selectedRecipe.emit(recipe);
-  }
+    const recipe = new Recipe('Ogbono', 'Natures own blend', 'http://sisijemimah.com/wp-content/uploads/2015/07/ogbono-2.jpg');
+    this.recipeSvc.addRecipe(recipe);
+    }
 
 
 }

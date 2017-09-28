@@ -7,14 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-  @Input() Recipe: Recipe;
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onSelectedRecipe(event) {
-    this.Recipe = event;
   }
 
 }
