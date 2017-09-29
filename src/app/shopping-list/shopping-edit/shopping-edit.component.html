@@ -3,17 +3,18 @@
     <div class="form-group">
       <div class="col-md-3">
         <label for="name" class="control-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control" placeholder="Product Name" [(ngModel)]="Ingredient.name">
-        <a>{{Ingredient.name}} ({{Ingredient.quantity}})</a>
+        <input #Name type="text" name="name" id="name" class="form-control" placeholder="Product Name">
       </div>
       <div class="col-md-1">
         <label for="qty" class="control-label">Qty</label>
-        <input type="number" name="qty" id="qty" class="form-control" placeholder="0" [(ngModel)]="Ingredient.quantity">
+        <input #Qty type="number" name="qty" id="qty" class="form-control" placeholder="0">
       </div>
     </div>
   </div>
   <div class="row form-group" style="margin: 5px; margin-left:0px">
-      <button class="btn btn-success" href="#">Add</button>
+      <button class="btn btn-success" href="#"
+      (click)="onClickAdd(Name.value, Qty.value)"
+      >Add</button>
       <button class="btn btn-danger" href="#">Delete</button>
       <button class="btn btn-primary" href="#">Clear</button>
   </div>

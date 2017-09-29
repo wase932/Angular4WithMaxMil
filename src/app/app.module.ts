@@ -36,7 +36,7 @@ import { OpenDropDownDirective } from './open-drop-down.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, ShoppingListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
