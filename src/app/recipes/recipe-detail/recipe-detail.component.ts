@@ -17,4 +17,9 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit() {
     this.recipeSvc.fireSelectedRecipe.subscribe(() => { this.recipe = this.recipeSvc.selectedRecipe; });
   }
+
+  onClick() {
+    this.recipeSvc.sendRecipeIngredientsToShoppingCart(this.recipe.Ingredients);
+    console.log('button-clicked');
+  }
 }

@@ -1,3 +1,4 @@
+import { Ingredient } from './../../shared/ingredient.model';
 import { RecipeService } from './../../services/recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit, DoCheck, EventEmitter, Output } from '@angular/core';
@@ -19,7 +20,13 @@ export class RecipeListComponent implements OnInit {
   }
 
   addRecipe() {
-    const recipe = new Recipe('Ogbono', 'Natures own blend', 'http://sisijemimah.com/wp-content/uploads/2015/07/ogbono-2.jpg');
+    const recipe = new Recipe( 'Ogbono'
+                              , 'Natures own blend'
+                              , 'http://sisijemimah.com/wp-content/uploads/2015/07/ogbono-2.jpg'
+                              , [  new Ingredient('Pomo', 3)
+                              , new Ingredient('Maggi Cubes', 1)
+                              , new Ingredient('Onions', 4)
+                             ]);
     this.recipeSvc.addRecipe(recipe);
     }
 

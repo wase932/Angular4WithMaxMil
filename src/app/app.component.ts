@@ -1,4 +1,3 @@
-import { ShoppintListService } from './services/shopping-list.service';
 import { ServerComponent } from './server/server.component';
 import { Component } from '@angular/core';
 
@@ -6,12 +5,12 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ServerComponent, ShoppintListService]
+  providers: [ServerComponent]
 })
 export class AppComponent {
-  currentButton = 'shoppingList';
+  currentButton = 'recipes';
 
-  constructor(private shoppintListService: ShoppintListService) {
+  constructor() {
   }
   onMenuEventReceived(event) {
     this.currentButton = event;

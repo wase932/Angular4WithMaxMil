@@ -10,7 +10,6 @@ export class OpenDropDownDirective {
 
   @HostListener('click') toggleMenu () {
     this.isOpen = !this.isOpen;
-    console.log('Menu Clicked');
   }
 
 }

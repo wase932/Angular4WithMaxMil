@@ -1,3 +1,4 @@
+import { ShoppintListService } from './services/shopping-list.service';
 import { RecipeService } from './services/recipe.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,7 @@ import { OpenDropDownDirective } from './open-drop-down.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [RecipeService, ShoppingListComponent],
+  providers: [RecipeService, ShoppintListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
