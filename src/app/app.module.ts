@@ -15,6 +15,7 @@ import { HttpModule } from '@angular/http';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent }
   , { path: 'users', component: UsersComponent }
+  , { path: 'users/:id/:name', component: UsersComponent }
   , { path: 'servers', component: ServersComponent }
 ];
 @NgModule({

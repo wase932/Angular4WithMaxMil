@@ -16,16 +16,6 @@ export class HomeComponent implements OnInit {
   }
 
   onAutomaticRoute() {
-   this.interval = setInterval(() => {
-
-      if (this.countDown > 0) {
-     this.countDown --; }
-
-     if (this.countDown === 0) {
       this.route.navigate(['/users']);
-      clearInterval(this.interval);
-    }
-    }
-    , 1000);
   }
 }
