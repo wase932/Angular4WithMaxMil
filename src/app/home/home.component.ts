@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAutomaticRoute() {
-      this.route.navigate(['/users']);
+  onLoadServer(id: number) {
+      this.route.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit : 1 }} );
   }
 }
