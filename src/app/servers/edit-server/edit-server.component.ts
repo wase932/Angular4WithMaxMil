@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
@@ -12,9 +13,13 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // go to : http://localhost:4200/servers/10/edit?allowEdit=1
+    this.route.queryParams.subscribe(() => {
+      console.log(this.route.snapshot.queryParams);
+    } );
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
