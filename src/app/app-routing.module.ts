@@ -17,7 +17,11 @@ const appRoutes: Routes = [
       ]
     }
 
-  , { path: 'servers', canActivate: [AuthGuard], component: ServersComponent, children:
+  , { path: 'servers',
+            // now when you go to Servers and try to click one of the three servers it redirectes to home.
+            canActivateChild: [AuthGuard],
+            component: ServersComponent,
+            children:
       [
           { path: ':id', component: ServerComponent }
         , { path: ':id/edit', component: EditServerComponent }
